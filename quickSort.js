@@ -58,24 +58,23 @@ for(let i =0; i < arr.length -1; i++){
         arrLeft.push(arr[i])
     }else{
         arrRight.push(arr[i])
+    }}
+
+
+    //if arrLeft or arrRight is empty don't call recursive fun on this arr
+    if(arrLeft.length > 0 && arrRight.length > 0){
+        return [...quickSortAl(arrLeft), pivot, ...quickSortAl(arrRight) ]
+    }else if(arrLeft.length > 0 ){
+        return [...quickSortAl(arrLeft), pivot]
+    } else{
+        return [pivot, ...quickSortAl(arrRight) ]
     }
 
-if(arrLeft.length > 0 && arrRight.length > 0){
-    return [...quickSortAl(arrLeft), pivot, ...quickSortAl(arrRight) ]
-}else if(arrLeft.length > 0 ){
-    return [...quickSortAl(arrLeft), pivot]
-} else{
-    return [pivot, ...quickSortAl(arrRight) ]
-}
+
 
 }
 
-
-const arr = [1, 2, 3, 4, 9,1 ,8, 23, 45, 11, 98, 45, 233, 45, 22, 43]
-
-}
-
-console.log(quickSortAl(arr))
+console.log(quickSortAl([1, 2, 3, 4, 9,1 ,8, 23, 45, 11, 98, 45, 233, 45, 22, 43]))
 
 
 
