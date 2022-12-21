@@ -42,39 +42,61 @@
 
 
 
-function quickSortAl(arr){
-//base case
-if(arr.length == 1){
-    return arr
-}
+// function quickSortAl(arr){
+// //base case
+// if(arr.length == 1){
+//     return arr
+// }
 
-//recursive function
-let pivot = arr[arr.length-1]
-let arrLeft = []
-let arrRight = []
+// //recursive function
+// let pivot = arr[arr.length-1]
+// let arrLeft = []
+// let arrRight = []
 
-for(let i =0; i < arr.length -1; i++){
-    if(arr[i] < pivot){
-        arrLeft.push(arr[i])
-    }else{
-        arrRight.push(arr[i])
-    }}
+// for(let i =0; i < arr.length -1; i++){
+//     if(arr[i] < pivot){
+//         arrLeft.push(arr[i])
+//     }else{
+//         arrRight.push(arr[i])
+//     }}
 
 
-    //if arrLeft or arrRight is empty don't call recursive fun on this arr
-    if(arrLeft.length > 0 && arrRight.length > 0){
-        return [...quickSortAl(arrLeft), pivot, ...quickSortAl(arrRight) ]
-    }else if(arrLeft.length > 0 ){
-        return [...quickSortAl(arrLeft), pivot]
-    } else{
-        return [pivot, ...quickSortAl(arrRight) ]
+//     //if arrLeft and arrRight is empty don't call recursive fun on this arr
+//     if(arrLeft.length > 0 && arrRight.length > 0){
+//         return [...quickSortAl(arrLeft), pivot, ...quickSortAl(arrRight) ]
+//     }else if(arrLeft.length > 0 ){
+//         return [...quickSortAl(arrLeft), pivot]
+//     } else{
+//         return [pivot, ...quickSortAl(arrRight) ]
+//     }
+
+
+
+    let quickSort = function(nums){
+    
+    if(nums.length == 1) return nums 
+    let pivot = nums[nums.length-1]
+    let left =[]
+    let right = []
+
+    for(let i = 0; i< nums.length-1; i++){
+        if(nums[i]< pivot){
+            left.push(nums[i])
+        } else {
+            right.push(nums[i])
+        }
+    }
+    
+    if(left.length > 0 && right.length > 0){
+        return [...quickSort(left), pivot, ...quickSort(right)]
+    } else if(left.length > 0){
+        return [...quickSort(left), pivot]
+    }else if(right.length > 0){
+        return [pivot, ...quickSort(right)]
+    }
     }
 
-
-
-}
-
-console.log(quickSortAl([1, 2, 3, 4, 9,1 ,8, 23, 45, 11, 98, 45, 233, 45, 22, 43]))
+console.log(quickSort([1, 2, 3, 0,5]))
 
 
 
